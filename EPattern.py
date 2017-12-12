@@ -58,7 +58,6 @@ class EPattern:
         
     
     def plot(self):
-        translate(100, 100)
         pushMatrix()
         self.apply_style()
         self.generate_element()
