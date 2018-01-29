@@ -7,7 +7,7 @@
 DOTS_NUMBER = 50
 ROSETTE_SIZE = 8
 PIXEL_SIZE = 8
-PIXEL_GAP = 1
+PIXEL_GAP = 2
 SAVE_SVG = False
 
 
@@ -21,7 +21,7 @@ def settings():
 
 def setup():
     pixelDensity(2)  # 2/1 - Retina/not
-    frameRate(15)  # animation speed   
+    frameRate(1)  # animation speed   
 
 def draw():
     background(255, 0)
@@ -39,5 +39,5 @@ def draw():
     if SAVE_SVG:
         endRecord()
     
-    noLoop()  # stop animation
+    #noLoop()  # stop animation
     
