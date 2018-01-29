@@ -3,14 +3,21 @@
 class EPattern {
     int fillin_pixels_amount, element_size, pixels_size, pixels_gap;
     ArrayList<PVector> pixels_coordinates;
+    boolean regenerateInEveryDraw;
   
-    EPattern(int fillin_pixels_amount, int element_size, int pixels_size, int pixels_gap) 
+    EPattern(int fillin_pixels_amount, 
+             int element_size, 
+             int pixels_size, 
+             int pixels_gap,
+             boolean regenerateInEveryDraw) 
     {
       this.fillin_pixels_amount = fillin_pixels_amount;
       this.element_size = element_size; // pixels in side
       this.pixels_size = pixels_size;  // pixel size
       this.pixels_gap = pixels_gap;  // pixel distance    
       this.pixels_coordinates = new ArrayList<PVector>();
+      this.regenerateInEveryDraw = regenerateInEveryDraw;
+      generate_element();
     }
 
     void apply_style() 
@@ -92,9 +99,10 @@ class EPattern {
     {
         pushMatrix();
         
+        if (regenerateInEveryDraw)
+          generate_element();
+        
         apply_style();
-        generate_element();
-                
         draw_element(0);
         draw_element(1);
         draw_element(2);
