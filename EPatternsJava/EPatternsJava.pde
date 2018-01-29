@@ -29,6 +29,11 @@ void setup()
 }
 
 void draw() {
+  
+    int DOTS_NUMBER = 50;
+    int ROSETTE_SIZE = 8;
+    int PIXEL_SIZE = 8;
+    int PIXEL_GAP = 2;
  
     background(255, 0);
 
