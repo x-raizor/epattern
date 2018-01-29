@@ -1,5 +1,6 @@
 
 import processing.svg.*;
+import java.util.UUID;
 
 /* ~·~·~·~·~·~·~·~·~·~·~·;
 # Every Pixel pattern;
@@ -11,10 +12,9 @@ int DOTS_NUMBER = 50;
 int ROSETTE_SIZE = 8;
 int PIXEL_SIZE = 8;
 int PIXEL_GAP = 2;
+
 boolean SAVE_SVG = true;
 
-
-//from EPattern import EPattern;
 
 void settings() 
 {
@@ -32,16 +32,16 @@ void draw() {
  
     background(255, 0);
 
-    //if (SAVE_SVG) {
-    //  hash_name = random.getrandbits(64);
-    //  beginRecord(SVG, 'svg/' + str(hash_name) + ".svg");
-    //}
+    if (SAVE_SVG) {
+      String hash_name = String.valueOf(UUID.randomUUID());
+      beginRecord(SVG, "svg/" + hash_name + ".svg");
+    }
 
     EPattern ep = new EPattern(DOTS_NUMBER, ROSETTE_SIZE, PIXEL_SIZE, PIXEL_GAP);
     ep.plot();
 
-    //if SAVE_SVG:;
-    //    endRecord();
+    if (SAVE_SVG)
+        endRecord();
 
     //noLoop()  // stop animation;
 }
